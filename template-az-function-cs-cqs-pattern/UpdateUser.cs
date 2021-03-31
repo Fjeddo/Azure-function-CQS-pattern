@@ -1,35 +1,31 @@
-using System;
-using System.IO;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Azure.WebJobs;
 using Microsoft.Azure.WebJobs.Extensions.Http;
-using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Logging;
-using Newtonsoft.Json;
+using template_az_function_cs_cqs_pattern.Models;
 
 namespace template_az_function_cs_cqs_pattern
 {
-    public static class UpdateUser
+    public class UpdateUser
     {
+        private readonly UpdateUserProcess _updateUserProcess;
+
+        public UpdateUser(UpdateUserProcess updateUserProcess)
+        {
+            _updateUserProcess = updateUserProcess;
+        }
+
         [FunctionName("UpdateUser")]
-        public static async Task<IActionResult> Run(
-            [HttpTrigger(AuthorizationLevel.Function, "get", "post", Route = null)] HttpRequest req,
-            ILogger log)
+        public async Task<IActionResult> Run([HttpTrigger(AuthorizationLevel.Function, "post", Route = "user")] UpdateUserRequest updateUserRequest, ILogger log)
         {
             log.LogInformation("C# HTTP trigger function processed a request.");
 
-            string name = req.Query["name"];
+            var (success, model, status) = await _updateUserProcess.Run(updateUserRequest);
 
-            var requestBody = await new StreamReader(req.Body).ReadToEndAsync();
-            dynamic data = JsonConvert.DeserializeObject(requestBody);
-            name ??= data?.name;
-
-            var responseMessage = string.IsNullOrEmpty(name)
-                ? "This HTTP triggered function executed successfully. Pass a name in the query string or in the request body for a personalized response."
-                : $"Hello, {name}. This HTTP triggered function executed successfully.";
-
-            return new OkObjectResult(responseMessage);
+            return success
+                ? new OkObjectResult(new UserDto(model))
+                : new StatusCodeResult(status);
         }
     }
 }
