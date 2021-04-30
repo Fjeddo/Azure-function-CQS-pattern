@@ -2,9 +2,9 @@
 {
     public class User
     {
-        public string Ssn { get; protected set; }
-        public string Name { get; protected set; }
-        public string Work { get; protected set; }
+        public string Ssn { get; private set; }
+        public string Name { get; private set; }
+        public string Work { get; private set; }
 
         public User(string ssn, string name, string work)
         {
@@ -13,10 +13,7 @@
             Work = work;
         }
         
-        private User Clone()
-        {
-            return new User(Ssn, Name, Work);
-        }
+        private User Clone() => new(Ssn, Name, Work);
 
         public User WithWork(string work)
         {

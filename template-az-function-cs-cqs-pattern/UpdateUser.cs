@@ -11,16 +11,11 @@ namespace template_az_function_cs_cqs_pattern
     {
         private readonly UpdateUserProcess _updateUserProcess;
 
-        public UpdateUser(UpdateUserProcess updateUserProcess)
-        {
-            _updateUserProcess = updateUserProcess;
-        }
+        public UpdateUser(UpdateUserProcess updateUserProcess) => _updateUserProcess = updateUserProcess;
 
         [FunctionName("UpdateUser")]
         public async Task<IActionResult> Run([HttpTrigger(AuthorizationLevel.Function, "post", Route = "user")] UpdateUserRequest updateUserRequest, ILogger log)
         {
-            log.LogInformation("C# HTTP trigger function processed a request.");
-
             var (success, model, status) = await _updateUserProcess.Run(updateUserRequest);
 
             return success

@@ -12,12 +12,15 @@ namespace template_az_function_cs_cqs_pattern
     {
         private readonly IQueryExecuter _queryExecuter;
         private readonly ICommandHandler _commandHandler;
+        private readonly IUserStorage _userStorage;
         private readonly ILogger _log;
 
-        public UpdateUserProcess(IQueryExecuter queryExecuter, ICommandHandler commandHandler, ILogger<UpdateUserProcess> log)
+        public UpdateUserProcess(IQueryExecuter queryExecuter, ICommandHandler commandHandler, IUserStorage userStorage, ILogger<UpdateUserProcess> log)
         {
             _queryExecuter = queryExecuter;
             _commandHandler = commandHandler;
+            _userStorage = userStorage;
+
             _log = log;
         }
 
@@ -27,31 +30,33 @@ namespace template_az_function_cs_cqs_pattern
 
             try
             {
-                var getUserQuery = new GetUserBySsnQuery(request.Ssn);
+                var getUserQuery = new GetUserBySsnQuery(request.Ssn, _userStorage);
 
                 var (success, updatedUser, status) = await _queryExecuter.Execute(getUserQuery);
                 if (!success)
                 {
                     _log.LogInformation($"Failed getting user {request.Ssn}");
+                    
                     return (false, default, status);
                 }
                 
                 var updateNameCommand = new UpdateNameCommand(request.Name);
-                var updateWorkCommand = new UpdateWorkCommand(request.Work);
-
                 updatedUser = await _commandHandler.Handle(updateNameCommand, updatedUser);
+                
+                var updateWorkCommand = new UpdateWorkCommand(request.Work);
                 updatedUser = await _commandHandler.Handle(updateWorkCommand, updatedUser);
 
                 return (true, updatedUser, 0);
             }
-            catch (Exception)
+            catch (Exception exception)
             {
-                _log.LogInformation($"Failed process {GetType().Name}");
+                _log.LogError(exception, $"Failed process {GetType().Name}");
+                
                 return (false, default, 555);
             }
             finally
             {
-                _log.LogInformation($"Run process {GetType().Name}");
+                _log.LogInformation($"Ran process {GetType().Name}");
             }
         }
     }

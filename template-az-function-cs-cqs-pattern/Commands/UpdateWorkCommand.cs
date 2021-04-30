@@ -7,10 +7,7 @@ namespace template_az_function_cs_cqs_pattern.Commands
     {
         private readonly string _work;
 
-        public UpdateWorkCommand(string work)
-        {
-            _work = work;
-        }
+        public UpdateWorkCommand(string work) => _work = work;
 
         public async Task<User> Execute(User domainModel) => domainModel.WithWork(_work);
     }
