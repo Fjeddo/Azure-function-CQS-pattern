@@ -1,8 +1,8 @@
 ﻿using System.Collections.Generic;
 using System.Threading.Tasks;
-using template_az_function_cs_cqs_pattern.Domain;
+using az_function_cs_cqs_pattern.Domain;
 
-namespace template_az_function_cs_cqs_pattern.FakeDb
+namespace az_function_cs_cqs_pattern.FakeDb
 {
     public class FakeUserStorage : IUserStorage
     {

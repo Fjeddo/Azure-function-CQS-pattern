@@ -2,7 +2,7 @@
   <PropertyGroup>
     <TargetFramework>netcoreapp3.1</TargetFramework>
     <AzureFunctionsVersion>v3</AzureFunctionsVersion>
-    <RootNamespace>template_az_function_cs_cqs_pattern</RootNamespace>
+    <RootNamespace>az_function_cs_cqs_pattern</RootNamespace>
 	<LangVersion>latest</LangVersion>
   </PropertyGroup>
   <ItemGroup>

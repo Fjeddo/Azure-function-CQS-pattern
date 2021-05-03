@@ -1,11 +1,11 @@
 using System.Threading.Tasks;
+using az_function_cs_cqs_pattern.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Azure.WebJobs;
 using Microsoft.Azure.WebJobs.Extensions.Http;
 using Microsoft.Extensions.Logging;
-using template_az_function_cs_cqs_pattern.Models;
 
-namespace template_az_function_cs_cqs_pattern
+namespace az_function_cs_cqs_pattern
 {
     public class UpdateUser
     {

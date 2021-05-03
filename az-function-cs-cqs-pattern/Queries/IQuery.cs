@@ -1,6 +1,6 @@
 ﻿using System.Threading.Tasks;
 
-namespace template_az_function_cs_cqs_pattern.Queries
+namespace az_function_cs_cqs_pattern.Queries
 {
     public interface IQuery<TDomainModel>
     {

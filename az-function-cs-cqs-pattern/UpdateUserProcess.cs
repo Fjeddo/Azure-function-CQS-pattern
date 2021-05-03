@@ -1,12 +1,12 @@
 ﻿using System;
 using System.Threading.Tasks;
+using az_function_cs_cqs_pattern.Commands;
+using az_function_cs_cqs_pattern.Domain;
+using az_function_cs_cqs_pattern.Models;
+using az_function_cs_cqs_pattern.Queries;
 using Microsoft.Extensions.Logging;
-using template_az_function_cs_cqs_pattern.Commands;
-using template_az_function_cs_cqs_pattern.Domain;
-using template_az_function_cs_cqs_pattern.Models;
-using template_az_function_cs_cqs_pattern.Queries;
 
-namespace template_az_function_cs_cqs_pattern
+namespace az_function_cs_cqs_pattern
 {
     public class UpdateUserProcess : IProcess<UpdateUserRequest, User>
     {

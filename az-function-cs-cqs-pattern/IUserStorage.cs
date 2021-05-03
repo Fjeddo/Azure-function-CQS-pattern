@@ -1,7 +1,7 @@
 ﻿using System.Threading.Tasks;
-using template_az_function_cs_cqs_pattern.Domain;
+using az_function_cs_cqs_pattern.Domain;
 
-namespace template_az_function_cs_cqs_pattern
+namespace az_function_cs_cqs_pattern
 {
     public interface IUserStorage
     {

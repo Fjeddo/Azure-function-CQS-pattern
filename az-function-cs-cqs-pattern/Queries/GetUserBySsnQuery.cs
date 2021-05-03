@@ -1,7 +1,7 @@
 ﻿using System.Threading.Tasks;
-using template_az_function_cs_cqs_pattern.Domain;
+using az_function_cs_cqs_pattern.Domain;
 
-namespace template_az_function_cs_cqs_pattern.Queries
+namespace az_function_cs_cqs_pattern.Queries
 {
     public class GetUserBySsnQuery : IQuery<User>
     {

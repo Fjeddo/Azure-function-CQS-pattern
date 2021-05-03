@@ -1,11 +1,12 @@
+using az_function_cs_cqs_pattern;
+using az_function_cs_cqs_pattern.FakeDb;
 using Microsoft.Azure.Functions.Extensions.DependencyInjection;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
-using template_az_function_cs_cqs_pattern.FakeDb;
 
-[assembly: FunctionsStartup(typeof(template_az_function_cs_cqs_pattern.Startup))]
+[assembly: FunctionsStartup(typeof(Startup))]
 
-namespace template_az_function_cs_cqs_pattern
+namespace az_function_cs_cqs_pattern
 {
     public class Startup : FunctionsStartup
     {

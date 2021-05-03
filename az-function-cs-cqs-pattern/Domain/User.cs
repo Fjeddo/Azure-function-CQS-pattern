@@ -1,4 +1,4 @@
-﻿namespace template_az_function_cs_cqs_pattern.Domain
+﻿namespace az_function_cs_cqs_pattern.Domain
 {
     public class User
     {
