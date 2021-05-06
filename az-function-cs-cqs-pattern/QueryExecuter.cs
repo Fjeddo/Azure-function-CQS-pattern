@@ -8,20 +8,18 @@ namespace az_function_cs_cqs_pattern
     {
         private readonly ILogger<IQueryExecuter> _log;
 
-        public QueryExecuter(ILogger<IQueryExecuter> log)
-        {
-            _log = log;
-        }
+        public QueryExecuter(ILogger<IQueryExecuter> log) => _log = log;
 
         public async Task<(bool success, TDomainModel result, int status)> Execute<TDomainModel>(IQuery<TDomainModel> query)
         {
             var queryType = query.GetType();
 
             _log.LogInformation($"Executing {queryType.Name}");
-            var retVal = await query.Execute();
+            var result = await query.Execute();
             _log.LogInformation($"Executed {queryType.Name}");
 
-            return retVal;
+            return result
+;
         }
     }
 }

@@ -8,11 +8,8 @@ namespace az_function_cs_cqs_pattern
     {
         private readonly ILogger<ICommandHandler> _log;
 
-        public CommandHandler(ILogger<ICommandHandler> log)
-        {
-            _log = log;
-        }
-        
+        public CommandHandler(ILogger<ICommandHandler> log) => _log = log;
+
         public async Task<TDomainModel> Handle<TDomainModel>(ICommand<TDomainModel> command, TDomainModel state)
         {
             var commandType = command.GetType();
