@@ -2,7 +2,7 @@
 {
     public class User
     {
-        public string Ssn { get; private set; }
+        public string Ssn { get; }
         public string Name { get; private set; }
         public string Work { get; private set; }
 
