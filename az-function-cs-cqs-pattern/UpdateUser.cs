@@ -1,5 +1,6 @@
 using System.Threading.Tasks;
-using az_function_cs_cqs_pattern.Models;
+using az_func_cs_cqs_pattern.Code;
+using az_func_cs_cqs_pattern.Code.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Azure.WebJobs;
 using Microsoft.Azure.WebJobs.Extensions.Http;

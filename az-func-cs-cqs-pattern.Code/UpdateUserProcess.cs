@@ -1,12 +1,12 @@
 ﻿using System;
 using System.Threading.Tasks;
-using az_function_cs_cqs_pattern.Commands;
-using az_function_cs_cqs_pattern.Domain;
-using az_function_cs_cqs_pattern.Models;
-using az_function_cs_cqs_pattern.Queries;
+using az_func_cs_cqs_pattern.Code.Domain;
+using az_func_cs_cqs_pattern.Code.Models;
+using az_func_cs_cqs_pattern.Code.Commands;
+using az_func_cs_cqs_pattern.Code.Queries;
 using Microsoft.Extensions.Logging;
 
-namespace az_function_cs_cqs_pattern
+namespace az_func_cs_cqs_pattern.Code
 {
     public class UpdateUserProcess : IProcess<UpdateUserRequest, User>
     {
@@ -36,13 +36,13 @@ namespace az_function_cs_cqs_pattern
                 if (!success)
                 {
                     _log.LogInformation($"Failed getting user {request.Ssn}");
-                    
+
                     return (false, default, status);
                 }
-                
+
                 var updateNameCommand = new UpdateNameCommand(request.Name);
                 updatedUser = await _commandHandler.Handle(updateNameCommand, updatedUser);
-                
+
                 var updateWorkCommand = new UpdateWorkCommand(request.Work);
                 updatedUser = await _commandHandler.Handle(updateWorkCommand, updatedUser);
 
@@ -51,7 +51,7 @@ namespace az_function_cs_cqs_pattern
             catch (Exception exception)
             {
                 _log.LogError(exception, $"Failed process {GetType().Name}");
-                
+
                 return (false, default, 555);
             }
             finally

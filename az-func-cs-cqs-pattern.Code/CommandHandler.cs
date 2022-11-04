@@ -1,8 +1,8 @@
 ﻿using System.Threading.Tasks;
-using az_function_cs_cqs_pattern.Commands;
+using az_func_cs_cqs_pattern.Code.Commands;
 using Microsoft.Extensions.Logging;
 
-namespace az_function_cs_cqs_pattern
+namespace az_func_cs_cqs_pattern.Code
 {
     public class CommandHandler : ICommandHandler
     {
@@ -13,11 +13,11 @@ namespace az_function_cs_cqs_pattern
         public async Task<TDomainModel> Handle<TDomainModel>(ICommand<TDomainModel> command, TDomainModel state)
         {
             var commandType = command.GetType();
-                
+
             _log.LogInformation($"Handling {commandType.Name}");
             var result = await command.Execute(state);
             _log.LogInformation($"Handled {commandType.Name}");
-            
+
             return result;
         }
     }

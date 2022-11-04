@@ -1,7 +1,7 @@
 ﻿using System.Threading.Tasks;
-using az_function_cs_cqs_pattern.Commands;
+using az_func_cs_cqs_pattern.Code.Commands;
 
-namespace az_function_cs_cqs_pattern
+namespace az_func_cs_cqs_pattern.Code
 {
     public interface ICommandHandler
     {

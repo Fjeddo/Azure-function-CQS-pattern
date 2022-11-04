@@ -1,7 +1,7 @@
 ﻿using System.Threading.Tasks;
-using az_function_cs_cqs_pattern.Domain;
+using az_func_cs_cqs_pattern.Code.Domain;
 
-namespace az_function_cs_cqs_pattern.Queries
+namespace az_func_cs_cqs_pattern.Code.Queries
 {
     public class GetUserBySsnQuery : IQuery<User>
     {
@@ -17,7 +17,7 @@ namespace az_function_cs_cqs_pattern.Queries
         public async Task<(bool success, User result, int status)> Execute()
         {
             var (success, user) = await _userStorage.GetUserBySsn(_ssn);
-            return success ? (true, user, 0) : (false, default, -1);
+            return success ? (true, user, 0) : (false, default, 404);
         }
     }
 }

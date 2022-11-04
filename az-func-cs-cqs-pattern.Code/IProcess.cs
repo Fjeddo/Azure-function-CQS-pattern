@@ -1,6 +1,6 @@
 ﻿using System.Threading.Tasks;
 
-namespace az_function_cs_cqs_pattern
+namespace az_func_cs_cqs_pattern.Code
 {
     public interface IProcess<TIn, TOut>
     {

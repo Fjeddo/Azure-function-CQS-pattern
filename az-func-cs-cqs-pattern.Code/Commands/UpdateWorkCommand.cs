@@ -1,7 +1,7 @@
 ﻿using System.Threading.Tasks;
-using az_function_cs_cqs_pattern.Domain;
+using az_func_cs_cqs_pattern.Code.Domain;
 
-namespace az_function_cs_cqs_pattern.Commands
+namespace az_func_cs_cqs_pattern.Code.Commands
 {
     public class UpdateWorkCommand : ICommand<User>
     {

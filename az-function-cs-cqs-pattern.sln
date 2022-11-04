@@ -1,11 +1,15 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 16
-VisualStudioVersion = 16.0.30804.86
+# Visual Studio Version 17
+VisualStudioVersion = 17.4.32916.344
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "az-function-cs-cqs-pattern", "az-function-cs-cqs-pattern\az-function-cs-cqs-pattern.csproj", "{CA2E0080-A2DA-4D7A-9BBC-29A979AC864B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tests", "Tests\Tests.csproj", "{6B46432C-4CCC-4BC0-992B-D32B5B1E4633}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Tests", "Tests\Tests.csproj", "{6B46432C-4CCC-4BC0-992B-D32B5B1E4633}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "az-func-isolated-cs-cqs-pattern", "az-func-isolated-cs-cqs-pattern\az-func-isolated-cs-cqs-pattern.csproj", "{EE9EBC19-6714-4ABE-8D5C-690C2C952923}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "az-func-cs-cqs-pattern.Code", "az-func-cs-cqs-pattern.Code\az-func-cs-cqs-pattern.Code.csproj", "{F18E2D99-0DC2-4012-BC01-10A9B6BA696E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +25,14 @@ Global
 		{6B46432C-4CCC-4BC0-992B-D32B5B1E4633}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6B46432C-4CCC-4BC0-992B-D32B5B1E4633}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6B46432C-4CCC-4BC0-992B-D32B5B1E4633}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EE9EBC19-6714-4ABE-8D5C-690C2C952923}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EE9EBC19-6714-4ABE-8D5C-690C2C952923}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EE9EBC19-6714-4ABE-8D5C-690C2C952923}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EE9EBC19-6714-4ABE-8D5C-690C2C952923}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F18E2D99-0DC2-4012-BC01-10A9B6BA696E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F18E2D99-0DC2-4012-BC01-10A9B6BA696E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F18E2D99-0DC2-4012-BC01-10A9B6BA696E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F18E2D99-0DC2-4012-BC01-10A9B6BA696E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

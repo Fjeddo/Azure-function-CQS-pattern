@@ -1,0 +1,9 @@
+{
+  "profiles": {
+    "az_func_isolated_cs_cqs_pattern": {
+      "commandName": "Project",
+      "commandLineArgs": "--port 7009",
+      "launchBrowser": false
+    }
+  }
+}

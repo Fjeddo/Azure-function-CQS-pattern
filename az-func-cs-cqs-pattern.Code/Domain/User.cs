@@ -1,4 +1,4 @@
-﻿namespace az_function_cs_cqs_pattern.Domain
+﻿namespace az_func_cs_cqs_pattern.Code.Domain
 {
     public class User
     {
@@ -12,7 +12,7 @@
             Name = name;
             Work = work;
         }
-        
+
         private User Clone() => new(Ssn, Name, Work);
 
         public User WithWork(string work)

@@ -1,7 +1,7 @@
 ﻿using System.Threading.Tasks;
-using az_function_cs_cqs_pattern;
-using az_function_cs_cqs_pattern.Domain;
-using az_function_cs_cqs_pattern.Queries;
+using az_func_cs_cqs_pattern.Code;
+using az_func_cs_cqs_pattern.Code.Domain;
+using az_func_cs_cqs_pattern.Code.Queries;
 using FluentAssertions;
 using NSubstitute;
 using Xunit;
@@ -40,7 +40,7 @@ namespace Tests
             var (success, result, status) = await sut.Execute();
 
             success.Should().BeFalse();
-            status.Should().Be(-1);
+            status.Should().Be(404);
             result.Should().BeEquivalentTo(default(User));
         }
     }
