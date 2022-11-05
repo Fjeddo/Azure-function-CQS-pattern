@@ -7,9 +7,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "az-function-cs-cqs-pattern"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Tests", "Tests\Tests.csproj", "{6B46432C-4CCC-4BC0-992B-D32B5B1E4633}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "az-func-isolated-cs-cqs-pattern", "az-func-isolated-cs-cqs-pattern\az-func-isolated-cs-cqs-pattern.csproj", "{EE9EBC19-6714-4ABE-8D5C-690C2C952923}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "az-func-isolated-cs-cqs-pattern", "az-func-isolated-cs-cqs-pattern\az-func-isolated-cs-cqs-pattern.csproj", "{EE9EBC19-6714-4ABE-8D5C-690C2C952923}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "az-func-cs-cqs-pattern.Code", "az-func-cs-cqs-pattern.Code\az-func-cs-cqs-pattern.Code.csproj", "{F18E2D99-0DC2-4012-BC01-10A9B6BA696E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "az-func-cs-cqs-pattern.Code", "az-func-cs-cqs-pattern.Code\az-func-cs-cqs-pattern.Code.csproj", "{F18E2D99-0DC2-4012-BC01-10A9B6BA696E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "az-func-isolated-cs-cqs-pattern-NET6", "az-func-isolated-cs-cqs-pattern-NET6\az-func-isolated-cs-cqs-pattern-NET6.csproj", "{11EC3755-F037-493F-8B94-F5A6331BBCAC}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +35,10 @@ Global
 		{F18E2D99-0DC2-4012-BC01-10A9B6BA696E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F18E2D99-0DC2-4012-BC01-10A9B6BA696E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F18E2D99-0DC2-4012-BC01-10A9B6BA696E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{11EC3755-F037-493F-8B94-F5A6331BBCAC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{11EC3755-F037-493F-8B94-F5A6331BBCAC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{11EC3755-F037-493F-8B94-F5A6331BBCAC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{11EC3755-F037-493F-8B94-F5A6331BBCAC}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

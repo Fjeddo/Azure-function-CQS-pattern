@@ -19,55 +19,6 @@ host.Run();
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 /*
         builder.UseWhen(
             _ => DateTimeOffset.Now.Second % 2 == 0,
@@ -110,6 +61,32 @@ host.Run();
         });
 
 
+-----------
 
+public class AuthMiddleware : IFunctionsWorkerMiddleware
+{
+    public async Task Invoke(FunctionContext context, FunctionExecutionDelegate next)
+    {
+        if (await context.GetHttpRequestDataAsync() is { } requestData)
+        {
+            var headers = requestData.Headers;
+            if (headers.TryGetValues("auth", out var authValues))
+            {
+                if (authValues.SingleOrDefault() is { } and "let-me-in")
+                {
+                    await next(context);
+                    return;
+                }
+            }
+
+            context.GetInvocationResult().Value = requestData.CreateResponse(HttpStatusCode.Forbidden);
+            return;
+        }
+        else
+        {
+            await next(context);
+        }
+    }
+}
 
 */

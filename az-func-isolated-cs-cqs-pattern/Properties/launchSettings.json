@@ -2,8 +2,12 @@
   "profiles": {
     "az_func_isolated_cs_cqs_pattern": {
       "commandName": "Project",
-      "commandLineArgs": "--port 7009",
-      "launchBrowser": false
+      "commandLineArgs": "--port 7009"
+    },
+    "func start": {
+      "commandName": "Executable",
+      "executablePath": "func",
+      "commandLineArgs": "start --dotnet-isolated-debug"
     }
   }
 }
