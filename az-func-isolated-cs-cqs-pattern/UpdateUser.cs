@@ -47,4 +47,24 @@ public class UpdateUser
             ? await req.CreateOkObjectResult(model)
             : await req.CreateStatusCodeResult(status);
     }
+
+    [Function("UpdateUserAndNotify")]
+    public async Task<ResultNotification> RunNotify([HttpTrigger(AuthorizationLevel.Function, methods: "post", Route = "userNotify")] HttpRequestData req)
+    {
+        var updateUserRequest = await req.ReadFromJsonAsync<UpdateUserRequest>();
+
+        var (success, model, status) = await _updateUserProcess.Run(updateUserRequest);
+
+        return success
+            ? new ResultNotification {Response = await req.CreateOkObjectResult(model), Ssn = updateUserRequest.Ssn}
+            : new ResultNotification {Response = await req.CreateStatusCodeResult(status)};
+    }
+
+    public class ResultNotification
+    {
+        public HttpResponseData Response { get; init; }
+
+        [QueueOutput("notify")]
+        public string Ssn { get; init; }
+    }
 }
