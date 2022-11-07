@@ -19,7 +19,41 @@ host.Run();
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 /*
+(context, builder) => 
+{
         builder.UseWhen(
             _ => DateTimeOffset.Now.Second % 2 == 0,
             async (context, _) =>
@@ -30,12 +64,12 @@ host.Run();
                 }
             }
         );
-
-
+}
 
 --------------
 
-
+(context, builder) => 
+{
         builder.UseMiddleware(async (context, next) =>
         {
             await next();
@@ -59,9 +93,13 @@ host.Run();
             logger.LogInformation("START2 ------------>");
             await next();
         });
-
+}
 
 -----------
+
+
+(context, builder) => builder.UseMiddleWare<AuthMiddleware>()
+
 
 public class AuthMiddleware : IFunctionsWorkerMiddleware
 {
