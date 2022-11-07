@@ -1,8 +1,8 @@
 ﻿using System.Threading.Tasks;
-using az_function_cs_cqs_pattern.Commands;
+using az_functions_cs_cqs_pattern.Code.Commands;
 using Microsoft.Extensions.Logging;
 
-namespace az_function_cs_cqs_pattern
+namespace az_functions_cs_cqs_pattern.Code
 {
     public class CommandHandler : ICommandHandler
     {

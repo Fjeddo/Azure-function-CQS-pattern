@@ -1,5 +1,6 @@
 using az_function_cs_cqs_pattern;
-using az_function_cs_cqs_pattern.FakeDb;
+using az_functions_cs_cqs_pattern.Code;
+using az_functions_cs_cqs_pattern.Code.FakeDb;
 using Microsoft.Azure.Functions.Extensions.DependencyInjection;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;

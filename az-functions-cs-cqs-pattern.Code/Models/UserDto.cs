@@ -1,6 +1,6 @@
-﻿using az_function_cs_cqs_pattern.Domain;
+﻿using az_functions_cs_cqs_pattern.Code.Domain;
 
-namespace az_function_cs_cqs_pattern.Models
+namespace az_functions_cs_cqs_pattern.Code.Models
 {
     public class UserDto
     {

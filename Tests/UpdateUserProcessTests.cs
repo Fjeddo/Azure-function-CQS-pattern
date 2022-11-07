@@ -1,9 +1,9 @@
 ﻿using System.Threading.Tasks;
-using az_function_cs_cqs_pattern;
-using az_function_cs_cqs_pattern.Commands;
-using az_function_cs_cqs_pattern.Domain;
-using az_function_cs_cqs_pattern.Models;
-using az_function_cs_cqs_pattern.Queries;
+using az_functions_cs_cqs_pattern.Code;
+using az_functions_cs_cqs_pattern.Code.Commands;
+using az_functions_cs_cqs_pattern.Code.Domain;
+using az_functions_cs_cqs_pattern.Code.Models;
+using az_functions_cs_cqs_pattern.Code.Queries;
 using FluentAssertions;
 using Microsoft.Extensions.Logging.Abstractions;
 using NSubstitute;

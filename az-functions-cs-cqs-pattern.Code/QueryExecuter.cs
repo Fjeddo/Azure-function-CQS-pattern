@@ -1,8 +1,8 @@
 ﻿using System.Threading.Tasks;
-using az_function_cs_cqs_pattern.Queries;
+using az_functions_cs_cqs_pattern.Code.Queries;
 using Microsoft.Extensions.Logging;
 
-namespace az_function_cs_cqs_pattern
+namespace az_functions_cs_cqs_pattern.Code
 {
     public class QueryExecuter : IQueryExecuter
     {

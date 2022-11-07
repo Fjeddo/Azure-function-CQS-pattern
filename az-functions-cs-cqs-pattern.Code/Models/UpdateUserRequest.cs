@@ -1,4 +1,4 @@
-﻿namespace az_function_cs_cqs_pattern.Models
+﻿namespace az_functions_cs_cqs_pattern.Code.Models
 {
     public class UpdateUserRequest
     {
