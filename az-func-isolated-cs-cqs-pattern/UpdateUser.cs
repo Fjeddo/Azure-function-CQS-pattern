@@ -36,6 +36,38 @@ public class UpdateUser
         }
     }
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     [Function("UpdateUserExt")]
     public async Task<HttpResponseData> RunExt([HttpTrigger(AuthorizationLevel.Function, methods: "post", Route = "userExt")] HttpRequestData req)
     {
@@ -47,6 +79,44 @@ public class UpdateUser
             ? await req.CreateOkObjectResult(model)
             : await req.CreateStatusCodeResult(status);
     }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     [Function("UpdateUserAndNotify")]
     public async Task<ResultNotification> RunNotify([HttpTrigger(AuthorizationLevel.Function, methods: "post", Route = "userNotify")] HttpRequestData req)
@@ -67,4 +137,36 @@ public class UpdateUser
         [QueueOutput("notify")]
         public string Ssn { get; init; }
     }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    [Function("UpdateUserAndNotify2")]
+    public async Task<ResultNotificationR> RunNotify2([HttpTrigger(AuthorizationLevel.Function, methods: "post", Route = "userNotify2")] HttpRequestData req)
+    {
+        var updateUserRequest = await req.ReadFromJsonAsync<UpdateUserRequest>();
+
+        var (success, model, status) = await _updateUserProcess.Run(updateUserRequest);
+
+        return success
+            ? new ResultNotificationR(await req.CreateOkObjectResult(model), updateUserRequest.Ssn)
+            : new ResultNotificationR(await req.CreateStatusCodeResult(status));
+    }
+
+    public record ResultNotificationR(HttpResponseData Response, [property: QueueOutput("notify")] string? Ssn = default);
 }
