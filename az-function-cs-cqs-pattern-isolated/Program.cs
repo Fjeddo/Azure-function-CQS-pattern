@@ -16,11 +16,38 @@ var host = new HostBuilder()
 host.Run();
 
 
+
+
+
+
 /*
-void AddProjectDependencies(IServiceCollection services) =>
-    services
-        .AddSingleton<QueryExecuter>()
-        .AddSingleton<CommandHandler>()
-        .AddScoped<UpdateUserProcess>()
-        .AddScoped<IUserStorage, FakeUserStorage>();
-*/
+ 
+(context, builder) =>
+    {
+        builder.UseMiddleware(async (context, next) =>
+        {
+            await next();
+
+            var logger = context.InstanceServices.GetService<ILogger<Program>>();
+            logger.LogInformation("----------------> END");
+        });
+
+        builder.UseMiddleware(async (context, next) =>
+        {
+            var logger = context.InstanceServices.GetService<ILogger<Program>>();
+
+            logger.LogInformation("START0 ------------>");
+            await next();
+        });
+
+        builder.UseMiddleware(async (context, next) =>
+        {
+            var logger = context.InstanceServices.GetService<ILogger<Program>>();
+
+            logger.LogInformation("START1 ------------>");
+            await next();
+        });
+    }
+
+
+ */ 

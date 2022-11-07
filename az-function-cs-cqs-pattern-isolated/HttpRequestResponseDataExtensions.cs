@@ -11,7 +11,11 @@ public static class HttpRequestResponseDataExtensions
 
     /// <returns>http status [httpStatusCode], empty body</returns>
     public static async Task<HttpResponseData> CreateStatusCodeResult(this HttpRequestData req, int httpStatusCode)
-        => req.CreateResponse((HttpStatusCode) httpStatusCode);
+        => req.CreateResponse((HttpStatusCode)httpStatusCode);
+
+    /// <returns>http status [httpStatusCode], empty body</returns>
+    public static async Task<HttpResponseData> CreateStatusCodeResult(this HttpRequestData req, HttpStatusCode httpStatusCode)
+        => req.CreateResponse(httpStatusCode);
 
     private static async Task<HttpResponseData> CreateResponseData<T>(this HttpRequestData req, T @object, HttpStatusCode httpStatusCode)
     {
