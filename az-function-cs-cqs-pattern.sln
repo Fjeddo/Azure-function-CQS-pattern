@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "az-functions-cs-cqs-pattern
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "az-function-cs-cqs-pattern-isolated", "az-function-cs-cqs-pattern-isolated\az-function-cs-cqs-pattern-isolated.csproj", "{DA593C1E-DE04-44FB-B5B9-498920562320}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "az-function-queue-trigger-isolated", "az-function-queue-trigger-isolated\az-function-queue-trigger-isolated.csproj", "{9E64260F-5E18-4C23-B142-955A2FC9E60D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{DA593C1E-DE04-44FB-B5B9-498920562320}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DA593C1E-DE04-44FB-B5B9-498920562320}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DA593C1E-DE04-44FB-B5B9-498920562320}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9E64260F-5E18-4C23-B142-955A2FC9E60D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9E64260F-5E18-4C23-B142-955A2FC9E60D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9E64260F-5E18-4C23-B142-955A2FC9E60D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9E64260F-5E18-4C23-B142-955A2FC9E60D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
