@@ -14,13 +14,3 @@ var host = new HostBuilder()
     .Build();
 
 host.Run();
-
-
-/*
-void AddProjectDependencies(IServiceCollection services) =>
-    services
-        .AddSingleton<QueryExecuter>()
-        .AddSingleton<CommandHandler>()
-        .AddScoped<UpdateUserProcess>()
-        .AddScoped<IUserStorage, FakeUserStorage>();
-*/
