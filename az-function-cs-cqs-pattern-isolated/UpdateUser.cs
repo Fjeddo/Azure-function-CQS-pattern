@@ -9,10 +9,7 @@ public class UpdateUser
 {
     private readonly UpdateUserProcess _updateUserProcess;
 
-    public UpdateUser(UpdateUserProcess updateUserProcess)
-    {
-        _updateUserProcess = updateUserProcess;
-    }
+    public UpdateUser(UpdateUserProcess updateUserProcess) => _updateUserProcess = updateUserProcess;
 
     [Function("UpdateUser")]
     public async Task<HttpResponseData> Run([HttpTrigger(AuthorizationLevel.Function, "post", Route = "user")] HttpRequestData req)
@@ -22,7 +19,7 @@ public class UpdateUser
         var (success, model, status) = await _updateUserProcess.Run(updateUserRequest);
 
         return success
-            ? await req.CreateOkObjectResult(model)
+            ? await req.CreateOkObjectResult(new UserDto(model))
             : await req.CreateStatusCodeResult(status);
     }
 }
