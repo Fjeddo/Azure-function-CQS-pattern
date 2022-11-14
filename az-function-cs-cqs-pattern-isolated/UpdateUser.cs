@@ -4,36 +4,32 @@ using az_functions_cs_cqs_pattern.Code.Models;
 using Microsoft.Azure.Functions.Worker;
 using Microsoft.Azure.Functions.Worker.Http;
 
-namespace az_function_cs_cqs_pattern_isolated
+namespace az_function_cs_cqs_pattern_isolated;
+
+public class UpdateUser
 {
-    public class UpdateUser
+    private readonly UpdateUserProcess _updateUserProcess;
+
+    public UpdateUser(UpdateUserProcess updateUserProcess) => _updateUserProcess = updateUserProcess;
+
+    [Function("UpdateUser")]
+    public async Task<HttpResponseData> Run([HttpTrigger(AuthorizationLevel.Function, "post", Route = "user")] HttpRequestData req)
     {
-        private readonly UpdateUserProcess _updateUserProcess;
+        var updateUserRequest = await req.ReadFromJsonAsync<UpdateUserRequest>();
 
-        public UpdateUser(UpdateUserProcess updateUserProcess)
+        var (success, model, status) = await _updateUserProcess.Run(updateUserRequest);
+
+        if (success)
         {
-            _updateUserProcess = updateUserProcess;
+            var response = req.CreateResponse(HttpStatusCode.OK);
+            await response.WriteAsJsonAsync(model);
+
+            return response;
         }
-
-        [Function("UpdateUser")]
-        public async Task<HttpResponseData> Run([HttpTrigger(AuthorizationLevel.Function, "post", Route = "user")] HttpRequestData req)
+        else
         {
-            var updateUserRequest = await req.ReadFromJsonAsync<UpdateUserRequest>();
-
-            var (success, model, status) = await _updateUserProcess.Run(updateUserRequest);
-
-            if (success)
-            {
-                var response = req.CreateResponse(HttpStatusCode.OK);
-                await response.WriteAsJsonAsync(model);
-
-                return response;
-            }
-            else
-            {
-                var response = req.CreateResponse((HttpStatusCode)status);
-                return response;
-            }
+            var response = req.CreateResponse((HttpStatusCode)status);
+            return response;
         }
     }
 }
