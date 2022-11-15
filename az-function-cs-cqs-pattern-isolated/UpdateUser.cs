@@ -23,9 +23,3 @@ public class UpdateUser
             : new ResultNotification { Response = await req.CreateStatusCodeResult(status) };
     }
 }
-
-
-
-//return success
-//    ? new ResultNotificationR(await req.CreateOkObjectResult(model), updateUserRequest.Ssn)
-//    : new ResultNotificationR(await req.CreateStatusCodeResult(status));
