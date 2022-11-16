@@ -57,7 +57,18 @@ host.Run();
 
 
 
-
+/*
+(ctx, builder) =>
+    {
+        builder.UseMiddleware(async (context, next) =>
+        {
+            var logger = context.InstanceServices.GetService<ILogger<Program>>();
+            logger.LogInformation("Hey from middleware!");
+            await next();
+            logger.LogInformation("Goodbye from middleware!");
+        });
+    }
+ */
 
 
 
