@@ -19,7 +19,7 @@ public class UpdateUser
         var (success, model, status) = await _updateUserProcess.Run(updateUserRequest);
 
         return success
-            ? new ResultNotification { Response = await req.CreateOkObjectResult(model), Ssn = updateUserRequest.Ssn }
+            ? new ResultNotification { Response = await req.CreateOkObjectResult(new UserDto(model)), Ssn = updateUserRequest.Ssn }
             : new ResultNotification { Response = await req.CreateStatusCodeResult(status) };
     }
 }

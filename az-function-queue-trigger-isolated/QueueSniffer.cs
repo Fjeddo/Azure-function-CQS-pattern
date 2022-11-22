@@ -1,22 +1,16 @@
-using System;
 using Microsoft.Azure.Functions.Worker;
 using Microsoft.Extensions.Logging;
 
-namespace az_function_queue_trigger_isolated
+namespace az_function_queue_trigger_isolated;
+
+public class QueueSniffer
 {
-    public class QueueSniffer
-    {
-        private readonly ILogger _logger;
+    private readonly ILogger _logger;
 
-        public QueueSniffer(ILoggerFactory loggerFactory)
-        {
-            _logger = loggerFactory.CreateLogger<QueueSniffer>();
-        }
+    public QueueSniffer(ILoggerFactory loggerFactory) 
+        => _logger = loggerFactory.CreateLogger<QueueSniffer>();
 
-        [Function("QueueSniffer")]
-        public void Run([QueueTrigger("notify", Connection = "AzureWebJobsStorage")] string myQueueItem)
-        {
-            _logger.LogInformation($"C# Queue trigger function processed: {myQueueItem}");
-        }
-    }
+    [Function("QueueSniffer")]
+    public void Run([QueueTrigger("notify", Connection = "AzureWebJobsStorage")] string myQueueItem) 
+        => _logger.LogInformation($"C# Queue trigger function processed: {myQueueItem}");
 }
