@@ -22,7 +22,7 @@ public class UpdateUser
         if (success)
         {
             var response = req.CreateResponse(HttpStatusCode.OK);
-            await response.WriteAsJsonAsync(model);
+            await response.WriteAsJsonAsync(new UserDto(model));
 
             return response;
         }

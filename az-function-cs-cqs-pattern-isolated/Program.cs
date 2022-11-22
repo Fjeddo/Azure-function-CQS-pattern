@@ -15,58 +15,15 @@ var host = new HostBuilder()
 
 host.Run();
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+//////////////
+// The DI config can be done in a separate method
 
 /*
+    ...
+    .ConfigureServices(AddProjectDependencies)
+    ...
+ 
+
 void AddProjectDependencies(IServiceCollection services) =>
     services
         .AddSingleton<QueryExecuter>()
@@ -74,3 +31,6 @@ void AddProjectDependencies(IServiceCollection services) =>
         .AddScoped<UpdateUserProcess>()
         .AddScoped<IUserStorage, FakeUserStorage>();
 */
+
+//
+//////////////
